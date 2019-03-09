@@ -1,8 +1,0 @@
----
-layout: post
-title: ""
-date: 2017-04-03 08:10:26 -0400
-category: personal
-tags: [micropost]
----
-After 17 days of no Facebook, I finally took a peek at my feed. I was totally uninterested, and I signed out after a minute. I think I'm over my Facebook addiction.
