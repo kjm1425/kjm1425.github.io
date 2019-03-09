@@ -1,14 +1,14 @@
-title:             Clean Blog
-email:             your-email@example.com
+title:             Kylie Moden's Blog
+email:             kyliemoden@gmail.com
 description:       A Blog Theme by Start Bootstrap
-author:            Start Bootstrap
-baseurl:           "/startbootstrap-clean-blog-jekyll"
+author:            Kylie Moden
+baseurl:           "/home"
 url:               "http://kjm1425.github.io"
 
 # Social Profiles
-twitter_username:  SBootstrap
-github_username:   BlackrockDigital
-facebook_username: StartBootstrap
+twitter_username:  KylieModen
+github_username:   kjm1425
+facebook_username: kyliemoden
 
 # Build settings
 markdown:          kramdown
