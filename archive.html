@@ -1,0 +1,31 @@
+---
+layout: page
+title: Archive
+navigation: true
+image: "img/bg-02.jpg"
+---
+
+{% for post in site.posts reversed %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% unless year == this_year %}
+      {% unless year == null %}<hr />{% endunless %}
+      {% assign year = this_year %}
+      <h1>{{ year }}</h1>
+    {% endunless %}
+
+    <!--- Post Starts -->
+    <div class="post-preview">
+        <h2 class="post-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">{% unless post.title == '' or post.title == null %}{{ post.title }}{% else %}{% capture excerpt %}{{ post.excerpt | markdownify | strip_html | strip_newlines | truncatewords: 7 }}{% endcapture %}{% unless excerpt == '' or excerpt == null %}{{ excerpt }}{% else %}{{ post.date | date: "%B %-d, %Y at %r" }}{% endunless %}{% endunless %}</a>
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.author }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        {% if post.categories %} in {{ post.categories | category_links }}{% endif %}
+        </p>
+    </div>
+    <!--- Post Ends -->
+{% endfor %}
