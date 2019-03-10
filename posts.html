@@ -5,7 +5,7 @@ background: '/img/bg-post.jpg'
 permalink: /posts/
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.posts %}
 
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.url | replace: '//', '/' }}">
@@ -30,7 +30,7 @@ permalink: /posts/
 {% endfor %}
 
 <!-- Pager -->
-{% if paginator.total_pages > 1 %}
+{% if p.total_pages > 1 %}
 
 <div class="clearfix">
 
