@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the personal website of Kylie Moden, and all opinions on this site are my own and not of my current or former employers. Learn more about what this site is for in my first [blog post](https://kyliemoden.com/HelloWorld/).
+This is the personal website of Kylie Moden, and all opinions on this site are my own and not of my current or former employers. Learn more about what this site is for in my [first blog post](https://kyliemoden.com/HelloWorld/).
 
 ### More Information
 
