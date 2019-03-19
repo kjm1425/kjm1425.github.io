@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Kylie Moden is a Program Manager at Microsoft. She ___
+This is the personal website of Kylie Moden, and all opinions on this site are my own and not of my current or former employers. 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I am a Program Manager at Microsoft and formerly worked as an engineering intern at Google. I previously founded UConvo, a startup focused on connecting college applicant with current students to get unbiased advice. In college I started the first Women in Computing club at Trinity University and got grant funding through Aspire IT for TECH Camps, an outreach program for middle school girls. At Microsoft I have served as co-chair of communications for Women of WDG and the employee resource group Women@Microsoft.   
 
 ### Contact me
 
-[kyliemoden@gmail.com](mailto:kyliemoden@gmail.com)
+Email: [kyliemoden@gmail.com](mailto:kyliemoden@gmail.com)
