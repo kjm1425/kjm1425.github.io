@@ -8,7 +8,7 @@ permalink: /posts/
 {% for post in site.posts %}
 
 <article class="post-preview">
-  <a href="{{ post.url | prepend: site.url | replace: '//', '/' }}">
+  <a href="{{ post.url | replace: '//', '/' }}">
     <h2 class="post-title">{{ post.title }}</h2>
     {% if post.subtitle %}
     <h3 class="post-subtitle">{{ post.subtitle }}</h3>
