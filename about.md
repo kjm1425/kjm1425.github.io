@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the personal website of Kylie Moden, and all opinions on this site are my own and not of my current or former employers. Visit the my [LinkedIn](https://www.linkedin.com/in/KylieModen) to see my full resume.
+This is the personal website of Kylie Moden, and all opinions on this site are my own and not of my current or former employers. Visit my [LinkedIn](https://www.linkedin.com/in/KylieModen) to see my full resume.
 
 ### Summary
 
