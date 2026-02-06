@@ -1,6 +1,6 @@
 ---
 ---
-
+@charset "UTF-8";
 //
 // IMPORTS
 //
@@ -373,6 +373,53 @@ img {
 
   @include mobile {
     max-height: 200px;
+  }
+}
+
+// Scrolling roles marquee (homepage)
+.roles-marquee {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: $space-xl;
+  margin-bottom: $space-xl;
+  padding: $space-md 0;
+  background: $inkLight;
+  color: $white;
+  overflow: hidden;
+  user-select: none;
+}
+
+.roles-marquee-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: roles-marquee-scroll 40s linear infinite;
+}
+
+.roles-marquee-item {
+  flex-shrink: 0;
+  padding: 0 $space-lg;
+  font-family: $fontHeading;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0.92;
+}
+
+.roles-marquee-item::after {
+  content: "\00B7";
+  margin-left: $space-lg;
+  opacity: 0.6;
+}
+
+@keyframes roles-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
