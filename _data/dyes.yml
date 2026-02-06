@@ -1,0 +1,6 @@
+# Add entries: image (filename in images/dyes/), caption (optional), date (optional)
+# For Meta API cross-posting later, add posted_to_instagram: false to each new entry
+- image: demo.gif
+  caption: "Example — add your own dye photos to images/dyes/ and list them here."
+  date: "2025-02-01"
+  posted_to_instagram: false

@@ -271,10 +271,101 @@ nav {
   }
 }
 
+// Section cards (homepage)
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $space-md;
+  margin-top: $space-lg;
+  list-style: none;
+  padding-left: 0;
+}
+
+.section-card {
+  display: block;
+  padding: $space-md;
+  border: 1px solid $border;
+  border-radius: 8px;
+  background: $white;
+  color: $darkGray;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover,
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: $darkGray;
+  }
+
+  .section-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 $space-xs 0;
+  }
+
+  .section-card-desc {
+    font-size: 0.9rem;
+    color: $gray;
+    margin: 0;
+  }
+}
+
+// Hero (homepage)
+.hero {
+  text-align: center;
+  padding: $space-lg 0 $space-md 0;
+
+  .hero-headline {
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin: 0 0 $space-sm 0;
+    color: $darkerGray;
+
+    @include mobile {
+      font-size: 1.4rem;
+    }
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-top: $space-md;
+    border-radius: 8px;
+  }
+}
+
+// Gallery grid (Disc Golf Dyes)
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: $space-md;
+  list-style: none;
+  padding: 0;
+  margin: $space-lg 0 0 0;
+}
+
+.gallery-item {
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid $border;
+  }
+
+  .gallery-caption {
+    font-size: 0.9rem;
+    color: $gray;
+    margin-top: $space-xs;
+  }
+}
+
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
   background-color: $lightGray;
 }
 

@@ -1,73 +1,29 @@
 ---
 layout: default
 ---
-<!-- 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+<div class="hero">
+  <p class="hero-headline">Product Manager, maker, musician</p>
+  <img class="hero-image" src="{{ site.baseurl }}/images/Artwork.gif" alt="" />
 </div>
 
--->
-
-<img class="img-fluid" src="/images/Artwork.gif" alt="Demo Image">
-
-<h1>Resume</h1>
-<br>
-<h2>Experiences</h2>
-<h3>Code.org</h3>
-<h4>Feb 2021 - Present<h4>
-<p>Product Manager for programming tools, partnering with design, curriculum and engineering teams to create user customer experiences that delight K-12 students and educators.</p>
-<br>
-<h3>Microsoft</h3>
-<h4>June 2017 - Jan 2021<h4>
-<p>Program Manager for Windows and Bing.</p>
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-        <!-- Home Post List -->
-    <!--
-        {% for post in site.posts limit : 3 %}
-
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.url | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}</p>
-        </article>
-
-        <hr>
-
-        {% endfor %}
-
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
-        </div>
--->
-      </div>
-    </div>
-  </div>
+<ul class="section-cards">
+  <li>
+    <a href="{{ site.baseurl }}/resume" class="section-card">
+      <p class="section-card-title">Work</p>
+      <p class="section-card-desc">Resume and experience</p>
+    </a>
+  </li>
+  <li>
+    <a href="{{ site.baseurl }}/disc-golf-dyes" class="section-card">
+      <p class="section-card-title">Disc golf dyes</p>
+      <p class="section-card-desc">Photo gallery</p>
+    </a>
+  </li>
+  <li>
+    <a href="{{ site.baseurl }}/about" class="section-card">
+      <p class="section-card-title">About</p>
+      <p class="section-card-desc">Bio and contact</p>
+    </a>
+  </li>
+</ul>
