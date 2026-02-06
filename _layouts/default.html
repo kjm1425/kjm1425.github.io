@@ -1,51 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
     {% include meta.html %}
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml" />
   </head>
-
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
+    <header class="site-header">
+      <div class="container container--wide">
+        <a href="{{ site.baseurl }}/" class="site-brand">
+          <img class="site-avatar" src="{{ site.avatar }}" alt="" />
           <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
+            <span class="site-name">{{ site.name }}</span>
+            <span class="site-description">{{ site.description }}</span>
           </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-            <a href="{{ site.baseurl }}/resume">Resume</a>
-            <a href="{{ site.baseurl }}/disc-golf-dyes">Disc Golf Dyes</a>
-          </nav>
-        </header>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/about">About</a>
+          <a href="{{ site.baseurl }}/resume">Resume</a>
+          <a href="{{ site.baseurl }}/disc-golf-dyes">Disc Golf Dyes</a>
+        </nav>
       </div>
-    </div>
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
+    </header>
+    <main id="main" role="main" class="main">
+      <div class="container container--wide">
+        {{ content }}
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container container--wide">
+        <div class="footer-icons">
           {% include svg-icons.html %}
-        </footer>
+        </div>
       </div>
-    </div>
-
+    </footer>
     {% include analytics.html %}
   </body>
 </html>
