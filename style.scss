@@ -376,24 +376,29 @@ img {
   }
 }
 
-// Scrolling roles marquee (homepage)
+// Scrolling roles marquee (homepage) - wave/arc
 .roles-marquee {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   margin-top: $space-xl;
   margin-bottom: $space-xl;
-  padding: $space-md 0;
+  padding: $space-lg 0;
   background: $inkLight;
   color: $white;
   overflow: hidden;
   user-select: none;
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .roles-marquee-inner {
   display: flex;
   flex-wrap: nowrap;
+  align-items: flex-end;
   width: max-content;
+  min-height: 3rem;
   animation: roles-marquee-scroll 40s linear infinite;
 }
 
@@ -406,7 +411,18 @@ img {
   letter-spacing: 0.02em;
   white-space: nowrap;
   opacity: 0.92;
+  transition: transform 0.1s ease-out;
 }
+
+// Wave: 8-step sine-like pattern (items ride up and down in an arc)
+.roles-marquee-item:nth-child(8n+1) { transform: translateY(0); }
+.roles-marquee-item:nth-child(8n+2) { transform: translateY(-6px); }
+.roles-marquee-item:nth-child(8n+3) { transform: translateY(-12px); }
+.roles-marquee-item:nth-child(8n+4) { transform: translateY(-16px); }
+.roles-marquee-item:nth-child(8n+5) { transform: translateY(-12px); }
+.roles-marquee-item:nth-child(8n+6) { transform: translateY(-6px); }
+.roles-marquee-item:nth-child(8n+7) { transform: translateY(0); }
+.roles-marquee-item:nth-child(8n+8) { transform: translateY(4px); }
 
 .roles-marquee-item::after {
   content: "\00B7";
