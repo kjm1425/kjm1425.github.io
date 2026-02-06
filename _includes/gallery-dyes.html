@@ -1,7 +1,7 @@
 <ul class="gallery-grid">
   {% for item in site.data.dyes %}
   <li class="gallery-item">
-    <img src="{{ site.baseurl }}/images/dyes/{{ item.image }}" alt="{{ item.caption | default: 'Disc golf dye' }}" />
+    <img src="{{ site.baseurl }}/images/dyes/{{ item.image }}" alt="{{ item.caption | default: 'Disc golf dye' }}" loading="lazy" />
     {% if item.caption %}
     <p class="gallery-caption">{{ item.caption }}</p>
     {% endif %}

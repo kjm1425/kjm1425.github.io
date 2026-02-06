@@ -296,6 +296,35 @@ img {
   border-bottom: none;
 }
 
+// Posts list page
+.post-preview {
+  margin-bottom: $space-lg;
+
+  .post-title {
+    font-size: 1.25rem;
+    margin-bottom: $space-xs;
+  }
+
+  .post-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $textMuted;
+    margin: 0 0 $space-xs 0;
+  }
+
+  .post-meta {
+    font-size: 0.875rem;
+    color: $textMuted;
+    margin: 0;
+  }
+}
+
+.post-preview + hr {
+  border: 0;
+  border-top: 1px solid $border;
+  margin: $space-md 0;
+}
+
 .post {
   blockquote {
     margin: 1.8em .8em;
@@ -499,6 +528,23 @@ img {
     &:focus-visible {
       color: $primary;
     }
+  }
+}
+
+// Print
+@media print {
+  .skip-link,
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  body {
+    background: $white;
+  }
+
+  .main {
+    padding: 0;
   }
 }
 
