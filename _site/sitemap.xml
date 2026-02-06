@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/3DS/</loc>
+<lastmod>2019-03-15T07:45:13-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/armoire/</loc>
+<lastmod>2019-03-18T07:45:13-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/Resume/</loc>
+<lastmod>2022-05-25T07:45:13-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/disc-golf-dyes/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/resume/</loc>
+</url>
+</urlset>
