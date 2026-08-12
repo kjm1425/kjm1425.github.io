@@ -11,6 +11,15 @@ title: ""
     <path d="M0,70 C120,20 240,110 380,60 C520,10 620,100 760,55 C900,10 1020,95 1200,45 L1200,0 L0,0 Z" fill="var(--terracotta)"></path>
   </svg>
 
+  <div class="role-wave" aria-hidden="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <defs>
+        <path id="roleWavePath" fill="none" d="M0,50 Q75,22 150,50 T300,50 T450,50 T600,50 T750,50 T900,50 T1050,50 T1200,50"></path>
+      </defs>
+      <text class="role-wave-text"><textPath id="roleTextPath" href="#roleWavePath" xlink:href="#roleWavePath" startOffset="0">product manager ✦ flautist ✦ novelist-in-progress ✦ disc golfer ✦ painter ✦ arranger ✦ idea collector ✦ dog mom ✦ tango bandmate ✦ Seattleite ✦ </textPath></text>
+    </svg>
+  </div>
+
   <div class="container hero-inner">
     <p class="hero-eyebrow">Seattle, WA&ensp;·&ensp;originally Austin, TX 🤠</p>
     <h1 class="hero-title">Hi, I’m <span class="hero-name">Kylie</span>.</h1>
@@ -60,16 +69,16 @@ title: ""
       <div class="squiggle" aria-hidden="true"></div>
       <p class="section-lede">
         I think about a <em>lot</em> of things — product strategy, music theory,
-        board game mechanics, what my dogs are dreaming about. I keep a living map
-        of the ideas rattling around in my head. Poke around; it grows over time.
+        board game mechanics, what my dogs are dreaming about. Here's a random
+        handful from the garden. Replant for a fresh sample.
       </p>
     </div>
-    <div class="flourish-frame">
-      <iframe src="https://flo.uri.sh/visualisation/19218225/embed" title="A map of ideas Kylie thinks about" frameborder="0" scrolling="no" loading="lazy" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+    <div class="garden-bed" id="gardenBed"></div>
+    <div class="garden-controls">
+      <button class="btn btn-ghost btn-small" id="replantBtn" type="button">🌱 Replant a fresh handful</button>
     </div>
-    <p class="flourish-fallback">
-      If the map is shy about loading,
-      <a href="https://public.flourish.studio/visualisation/19218225/">open it directly on Flourish ↗</a>
+    <p class="garden-note">
+      A sample, not the census — <a href="{{ '/projects/idea-garden/' | relative_url }}">the garden's story lives here</a>.
     </p>
   </div>
 </section>
@@ -102,3 +111,91 @@ title: ""
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- Scrolling wavy role marquee --- */
+  var textPath = document.getElementById("roleTextPath");
+  var wavePath = document.getElementById("roleWavePath");
+  if (textPath && wavePath) {
+    var unit = "product manager ✦ flautist ✦ novelist-in-progress ✦ disc golfer ✦ painter ✦ arranger ✦ idea collector ✦ dog mom ✦ tango bandmate ✦ Seattleite ✦ ";
+    var repeats = 14;
+
+    // Extend the wave far past both edges so wide screens never see a gap
+    var d = "M-2000,50 Q-1925,22 -1850,50";
+    for (var x = -1700; x <= 4600; x += 150) d += " T" + x + ",50";
+    wavePath.setAttribute("d", d);
+    textPath.textContent = unit.repeat(repeats);
+
+    if (!reducedMotion) {
+      var unitLength = textPath.parentNode.getComputedTextLength() / repeats;
+      var offset = 0;
+      var last = performance.now();
+      var tick = function (now) {
+        var dt = Math.min((now - last) / 1000, 0.1);
+        last = now;
+        offset -= dt * 42;
+        if (offset <= -unitLength) offset += unitLength;
+        textPath.setAttribute("startOffset", offset);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+
+  /* --- Idea garden: a random handful of seeds --- */
+  var IDEAS = [
+    { t: "🔎 why search intent is hard", c: "teal" },
+    { t: "🧭 results people can trust", c: "teal" },
+    { t: "🧒 onboarding kindergartners to code", c: "teal" },
+    { t: "📖 storytelling as a teaching tool", c: "teal" },
+    { t: "🏪 discovering things you didn't search for", c: "teal" },
+    { t: "📝 what makes a spec sing", c: "teal" },
+    { t: "🪈 tango phrasing on flute", c: "terracotta" },
+    { t: "🎼 arranging for flute choir", c: "terracotta" },
+    { t: "🎹 composing, someday", c: "terracotta" },
+    { t: "🪗 the bandoneon", c: "terracotta" },
+    { t: "🎷 jazz club setlists", c: "terracotta" },
+    { t: "✍️ the novel's next chapter", c: "gold" },
+    { t: "👗 dress designs in the margins", c: "gold" },
+    { t: "⏳ a better board-game sand timer", c: "gold" },
+    { t: "🎨 what to paint next", c: "gold" },
+    { t: "🧵 costume tech & sewing", c: "gold" },
+    { t: "🥏 disc golf release angles", c: "sage" },
+    { t: "🐕 what my dogs dream about", c: "sage" },
+    { t: "🌲 Seattle park loops", c: "sage" },
+    { t: "💆 spa-ownership daydreams", c: "sage" },
+    { t: "🎲 board game mechanics", c: "sage" },
+    { t: "💃 dancing vs. swimming", c: "sage" }
+  ];
+  var SAMPLE_SIZE = 9;
+  var bed = document.getElementById("gardenBed");
+  var button = document.getElementById("replantBtn");
+
+  function plant() {
+    if (!bed) return;
+    var pool = IDEAS.slice();
+    var picks = [];
+    while (picks.length < SAMPLE_SIZE && pool.length) {
+      picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    bed.innerHTML = "";
+    picks.forEach(function (idea, i) {
+      var seed = document.createElement("span");
+      seed.className = "idea-seed seed--" + idea.c;
+      seed.textContent = idea.t;
+      seed.style.setProperty("--rot", (Math.random() * 6 - 3).toFixed(1) + "deg");
+      if (!reducedMotion) {
+        seed.style.animationDuration = (4 + Math.random() * 3).toFixed(1) + "s";
+        seed.style.animationDelay = "-" + (Math.random() * 4).toFixed(1) + "s";
+      }
+      bed.appendChild(seed);
+    });
+  }
+
+  if (button) button.addEventListener("click", plant);
+  plant();
+})();
+</script>
