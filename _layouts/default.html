@@ -1,52 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title and page.title != "" %}{{ page.title }} · {{ site.name }}{% else %}{{ site.name }} — {{ site.description }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
+    <meta property="og:title" content="{% if page.title and page.title != '' %}{{ page.title }}{% else %}{{ site.name }}{% endif %}" />
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
+    <meta property="og:image" content="{{ '/images/Artwork.gif' | absolute_url }}" />
 
-    {% include meta.html %}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | relative_url }}" />
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-          <a href="{{ site.baseurl }}/about">About</a>
-
-        <!--    <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-            <a href="{{ site.baseurl }}/posts">Posts</a> -->
-          </nav>
-        </header>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="{{ '/' | relative_url }}">Kylie Moden<span class="wordmark-dot">.</span></a>
+        <nav class="site-nav">
+          <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects' %}class="active"{% endif %}>Projects</a>
+          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+        </nav>
       </div>
-    </div>
-    <div id="main" role="main" class="container">
+    </header>
+
+    <main id="main">
       {{ content }}
-    </div>
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
+    </main>
 
-    {% include analytics.html %}
+    <footer class="site-footer">
+      <svg class="footer-wave" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,30 C150,60 300,0 450,25 C600,50 750,5 900,30 C1050,55 1150,15 1200,30 L1200,60 L0,60 Z" fill="var(--ink)"></path>
+      </svg>
+      <div class="footer-body">
+        <div class="container">
+          <p class="footer-hello">Thanks for stopping by! 👋</p>
+          <p class="footer-links">
+            <a href="mailto:{{ site.email }}">Email</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.linkedin.com/in/{{ site.linkedin }}">LinkedIn</a>
+            <span aria-hidden="true">·</span>
+            <a href="{{ '/writing/' | relative_url }}">Writing archive</a>
+          </p>
+          <p class="footer-fine">© {{ site.time | date: '%Y' }} Kylie Moden · Made with ☕ in Seattle · All opinions my own</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

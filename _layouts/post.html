@@ -1,17 +1,15 @@
 ---
 layout: default
 ---
-
-<article class="post">
-  <h1>{{ page.title }}</h1>
-
-  <div class="entry">
+<article class="container page">
+  <header class="page-header">
+    <p class="eyebrow">From the archive · {{ page.date | date: '%B %-d, %Y' }}</p>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
+    <div class="squiggle" aria-hidden="true"></div>
+  </header>
+  <div class="prose">
     {{ content }}
   </div>
-
-  <div class="date">
-    Last updated on {{ page.date | date: "%B %e, %Y" }}
-  </div>
-
-  {% include disqus.html %}
+  <p class="back-link"><a href="{{ '/writing/' | relative_url }}">← Back to the writing archive</a></p>
 </article>
