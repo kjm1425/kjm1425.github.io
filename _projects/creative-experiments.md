@@ -4,7 +4,7 @@ blurb: Painting, doodled dress designs, and whatever creative project finds me n
 emoji: 🎨
 color: var(--plum)
 status: Whenever inspiration strikes
-order: 6
+order: 7
 ---
 
 I always find myself looking for creative projects. Painting is the steady one —

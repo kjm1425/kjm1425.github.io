@@ -8,13 +8,16 @@ permalink: /about/
 
 Hi! I'm Kylie — a dog-loving Seattleite, originally from Austin, Texas. 🐕🌲
 
-By day, I'm a Product Manager at [Code.org](https://code.org), where I focus on
-programming tools for the K-12 student experience, serving about 20 million
-students annually. I partner with design, curriculum, and engineering teams to
-build coding experiences that delight students and educators alike. Before
-Code.org, I was a PM at Microsoft working on both Windows and Bing — at Bing, I
-worked on search experiences including the results for queries about COVID-19
-and the 2020 election.
+By day, I'm a Senior Product Manager at Yahoo, driving search growth — from
+integrations across first-party experiences to targeted improvements to the
+search results page. [Search has become a career-long thread](/projects/search/):
+before Yahoo, I was a PM at DoorDash working on search user experiences,
+helping people find anything they need locally. Before that, I was a PM at
+[Code.org](https://code.org), building the
+[programming tools](/projects/student-tools/) — App Lab, Sprite Lab, and Game
+Lab — that K-12 students use to learn computer science. And I started my career
+at Microsoft, working on both Windows and Bing, where my search experiences
+included the results for queries about COVID-19 and the 2020 election.
 
 Outside of work, I'm an individual with *many* hobbies — I could write a book
 about them all (and in fact, [writing a novel](/projects/the-novel/) is one of
