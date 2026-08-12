@@ -1,73 +1,104 @@
 ---
 layout: default
+title: ""
 ---
-<!-- 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<section class="hero">
+  <svg class="hero-ribbon" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,118 C150,80 300,140 440,105 C580,70 690,136 830,100 C970,64 1080,125 1200,94 L1200,0 L0,0 Z" fill="var(--sage)"></path>
+    <path d="M0,104 C140,60 280,130 420,90 C560,50 670,124 810,85 C950,46 1060,115 1200,78 L1200,0 L0,0 Z" fill="var(--gold)"></path>
+    <path d="M0,88 C130,40 260,120 400,75 C540,30 650,112 790,70 C930,28 1040,105 1200,62 L1200,0 L0,0 Z" fill="var(--orange)"></path>
+    <path d="M0,70 C120,20 240,110 380,60 C520,10 620,100 760,55 C900,10 1020,95 1200,45 L1200,0 L0,0 Z" fill="var(--terracotta)"></path>
+  </svg>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+  <div class="container hero-inner">
+    <p class="hero-eyebrow">Seattle, WA&ensp;·&ensp;originally Austin, TX 🤠</p>
+    <h1 class="hero-title">Hi, I’m <span class="hero-name">Kylie</span>.</h1>
+    <p class="hero-lede">
+      Product manager by day, <em>flautist</em> by night, and a
+      collector of ideas the whole time in between. I spend my days
+      <a href="{{ '/projects/search/' | relative_url }}">making search better at Yahoo</a>
+      — and off the clock I’m writing a novel, playing tango at a jazz club,
+      and slowly getting better at disc golf.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/projects/' | relative_url }}">See my projects →</a>
+      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">More about me</a>
+    </div>
+  </div>
+</section>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
-
--->
-
-<img class="img-fluid" src="/images/Artwork.gif" alt="Demo Image">
-
-<h1>Resume</h1>
-<br>
-<h2>Experiences</h2>
-<h3>Code.org</h3>
-<h4>Feb 2021 - Present<h4>
-<p>Product Manager for programming tools, partnering with design, curriculum and engineering teams to create user customer experiences that delight K-12 students and educators.</p>
-<br>
-<h3>Microsoft</h3>
-<h4>June 2017 - Jan 2021<h4>
-<p>Program Manager for Windows and Bing.</p>
-
-
+<section class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="section-heading">
+      <h2>Things I’m making <span class="wave-emoji">🛠️</span></h2>
+      <div class="squiggle" aria-hidden="true"></div>
+    </div>
 
-        <!-- Home Post List -->
-    <!--
-        {% for post in site.posts limit : 3 %}
-
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.url | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}</p>
-        </article>
-
-        <hr>
-
-        {% endfor %}
-
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+    <div class="project-grid">
+      {% assign featured = site.projects | sort: 'order' %}
+      {% for project in featured limit: 6 %}
+      <a class="project-card" href="{{ project.url | relative_url }}">
+        <div class="project-card-cover" style="background: {{ project.color | default: 'var(--sage)' }};">
+          <span class="project-card-emoji" aria-hidden="true">{{ project.emoji | default: '✨' }}</span>
         </div>
--->
+        <div class="project-card-body">
+          <span class="project-status">{{ project.status }}</span>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.blurb }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="container">
+    <div class="section-heading">
+      <h2>The idea garden <span class="wave-emoji">🌱</span></h2>
+      <div class="squiggle" aria-hidden="true"></div>
+      <p class="section-lede">
+        I think about a <em>lot</em> of things — product strategy, music theory,
+        board game mechanics, what my dogs are dreaming about. I keep a living map
+        of the ideas rattling around in my head. Poke around; it grows over time.
+      </p>
+    </div>
+    <div class="flourish-frame">
+      <iframe src="https://flo.uri.sh/visualisation/19218225/embed" title="A map of ideas Kylie thinks about" frameborder="0" scrolling="no" loading="lazy" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+    </div>
+    <p class="flourish-fallback">
+      If the map is shy about loading,
+      <a href="https://public.flourish.studio/visualisation/19218225/">open it directly on Flourish ↗</a>
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Currently <span class="wave-emoji">✨</span></h2>
+      <div class="squiggle" aria-hidden="true"></div>
+    </div>
+    <div class="currently-grid">
+      <div class="currently-card">
+        <span class="currently-emoji" aria-hidden="true">🎶</span>
+        <h3>Playing</h3>
+        <p>Flute in a jazz tango ensemble — we perform every few months at
+        <a href="https://theroyalroomseattle.com">The Royal Room</a> in Seattle.</p>
+      </div>
+      <div class="currently-card">
+        <span class="currently-emoji" aria-hidden="true">✍️</span>
+        <h3>Writing</h3>
+        <p>A novel! It’s one of my many hobbies — I could write a book about them all,
+        so I figured I’d start with an actual book.</p>
+      </div>
+      <div class="currently-card">
+        <span class="currently-emoji" aria-hidden="true">🥏</span>
+        <h3>Throwing</h3>
+        <p>Discs, at baskets, weekly. Current personal record: three (3!!!) pars
+        over 18 holes. Watch this space.</p>
       </div>
     </div>
   </div>
+</section>
