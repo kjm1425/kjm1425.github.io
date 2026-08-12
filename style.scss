@@ -213,6 +213,31 @@ h1, h2, h3 {
   &:hover { background: var(--ink); color: var(--cream); }
 }
 
+/* ---- Role marquee divider ---- */
+
+.role-divider {
+  background: var(--cream-deep);
+  border-top: 1px solid rgba(46, 42, 37, 0.08);
+  border-bottom: 1px solid rgba(46, 42, 37, 0.08);
+  overflow: hidden;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 76px;
+    overflow: hidden;
+  }
+}
+
+.role-wave-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.04em;
+  fill: var(--terracotta);
+}
+
 /* ---- Sections ---- */
 
 .section { padding: 56px 0; }
@@ -459,6 +484,8 @@ h1, h2, h3 {
   .hero-inner { padding-top: 32px; }
   .hero-lede { font-size: 1.1rem; }
   .hero-ribbon { height: 80px; }
+  .role-divider svg { height: 58px; }
+  .role-wave-text { font-size: 22px; }
   .section { padding: 40px 0; }
   .flourish-frame iframe { height: 420px; }
   .site-nav { gap: 14px; }

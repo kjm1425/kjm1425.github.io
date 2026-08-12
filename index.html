@@ -28,6 +28,15 @@ title: ""
   </div>
 </section>
 
+<div class="role-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <path id="roleWavePath" fill="none" d="M0,50 Q75,22 150,50 T300,50 T450,50 T600,50 T750,50 T900,50 T1050,50 T1200,50"></path>
+    </defs>
+    <text class="role-wave-text"><textPath id="roleTextPath" href="#roleWavePath" xlink:href="#roleWavePath" startOffset="0">product manager ✦ flautist ✦ novelist-in-progress ✦ disc golfer ✦ painter ✦ arranger ✦ idea collector ✦ dog mom ✦ tango bandmate ✦ Seattleite ✦ </textPath></text>
+  </svg>
+</div>
+
 <section class="section">
   <div class="container">
     <div class="section-heading">
@@ -102,3 +111,36 @@ title: ""
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var textPath = document.getElementById("roleTextPath");
+  var wavePath = document.getElementById("roleWavePath");
+  if (!textPath || !wavePath) return;
+
+  var unit = "product manager ✦ flautist ✦ novelist-in-progress ✦ disc golfer ✦ painter ✦ arranger ✦ idea collector ✦ dog mom ✦ tango bandmate ✦ Seattleite ✦ ";
+  var repeats = 14;
+
+  // Extend the wave far past both edges so wide screens never see a gap
+  var d = "M-2000,50 Q-1925,22 -1850,50";
+  for (var x = -1700; x <= 4600; x += 150) d += " T" + x + ",50";
+  wavePath.setAttribute("d", d);
+  textPath.textContent = unit.repeat(repeats);
+
+  if (reducedMotion) return;
+
+  var unitLength = textPath.parentNode.getComputedTextLength() / repeats;
+  var offset = 0;
+  var last = performance.now();
+  var tick = function (now) {
+    var dt = Math.min((now - last) / 1000, 0.1);
+    last = now;
+    offset -= dt * 42;
+    if (offset <= -unitLength) offset += unitLength;
+    textPath.setAttribute("startOffset", offset);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
